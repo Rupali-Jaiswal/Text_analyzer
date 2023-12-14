@@ -39,8 +39,8 @@ export default function Navebar(props) {
                 <div className="pallete rounded  mx-1" onClick={() => { props.togglemode('#20c997') }} style={{
                   height: '17.5px', width: '17.5px', cursor: 'pointer',backgroundColor:'#20c997'
                 }}></div>
-                <div className="pallete rounded  mx-1" onClick={() => { props.togglemode('#505458') }} style={{
-                  height: '17.5px', width: '17.5px', cursor: 'pointer',backgroundColor:'#505458'
+                <div className="pallete rounded  mx-1" onClick={() => { props.togglemode('#7c7d7f') }} style={{
+                  height: '17.5px', width: '17.5px', cursor: 'pointer',backgroundColor:'#7c7d7f'
                 }}></div>
               </div>
             </div>

@@ -9,11 +9,15 @@ export default function TextConvertr(props) {
     props.showAlert("success", "Converted to Upper case")
   };
   const handleLowClick = (event) => {
-    settext(event.target.value);
-    let newText = text.toLowerCase();
-    settext(newText);
-    props.showAlert("success", "Converted to lower case")
-
+    if (event.target.value===null) {
+      props.showAlert("warning", "Please enter text")
+    }
+    else {
+      settext(event.target.value);
+      let newText = text.toLowerCase();
+      settext(newText);
+      props.showAlert("success", "Converted to lower case")
+    }
   };
   const handleClear = (event) => {
     let newText = " ";
@@ -24,11 +28,11 @@ export default function TextConvertr(props) {
     settext(event.target.value);
   };
   const RemoveSpace = (event) => {
-    let newtext = text.split(/[ ]+ /);
+    let newtext = text.split(/\s+/);
     settext(newtext.join(" "))
     props.showAlert("success", "Space is removed")
   }
-  const handleCopy=()=>{
+  const handleCopy = () => {
     navigator.clipboard.writeText(text);
     props.showAlert("success", "Text is copied")
   }
@@ -58,25 +62,26 @@ export default function TextConvertr(props) {
           ></textarea>
         </div>
         <div className="container">
-        <button type="Submit" className="btn btn-primary me-3 ms-3" onClick={handleUpClick}>
-          Convert to UpperCase
-        </button>
-        <button type="Submit" className="btn btn-primary me-3" onClick={handleLowClick}>
-          Convert to LowerCase
-        </button>
-        <button type="Submit" className="btn btn-primary me-3" onClick={handleClear}>
-          Clear Text
-        </button>
-        <button type="Submit" className="btn btn-primary me-3" onClick={RemoveSpace}>
-          Remove Space
-        </button>
-        <button type="Submit" className="btn btn-primary me-3" onClick={handleCopy}>
-          Copy Text
-        </button>
-        <div className="container my-3">
-        <h6>No. of lettors : {countLetters(text)}</h6>
-        <h6>No. of words : {text.split(" ").filter((element)=>{return element.length!=0}).length}</h6>
-        </div>
+          <button type="Submit" disabled={countLetters(text)===0}  className="btn  me-3 ms-3 my-1" onClick={handleUpClick} style={{backgroundColor:`${props.btncolor}` ,color:'white'}}>
+            Convert to UpperCase
+          </button>
+          <button type="Submit"  disabled={countLetters(text)===0} className="btn  me-3 my-1" onClick={handleLowClick} style={{backgroundColor:`${props.btncolor}` ,color:'white'}}>
+            Convert to LowerCase
+          </button>
+          <button type="Submit" disabled={countLetters(text)===0}  className="btn  me-3 my-1" onClick={handleClear} style={{backgroundColor:`${props.btncolor}` ,color:'white'}}>
+            Clear Text
+          </button>
+          <button type="Submit" disabled={countLetters(text)===0}  className="btn  me-3 my-1" onClick={RemoveSpace} style={{backgroundColor:`${props.btncolor}` ,color:'white'}}>
+            Remove Space
+          </button>
+          <button type="Submit" disabled={countLetters(text)===0}  className="btn  me-3 my-1" onClick={handleCopy} style={{backgroundColor:`${props.btncolor}`,color:'white'}}>
+            Copy Text
+          </button>
+          <div className="container my">
+            <h6>No. of lettors : {countLetters(text)}</h6>
+            <h6>No. of words : {text.split(/\s/).filter((element) => { return element.length != 0 }).length}</h6>
+            <h6>No. of lines : {text.split(/\n/).filter((element) => { return element.length != 0 }).length}</h6>
+          </div>
         </div>
       </div>
     </>
