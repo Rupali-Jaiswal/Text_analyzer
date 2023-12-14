@@ -61,8 +61,8 @@ export default function TextConvertr(props) {
             placeholder="Enter Text here"
           ></textarea>
         </div>
-        <div className="container">
-          <button type="Submit" disabled={countLetters(text)===0}  className="btn  me-3 ms-3 my-1" onClick={handleUpClick} style={{backgroundColor:`${props.btncolor}` ,color:'white'}}>
+        <div className="container" style={{display:'flex'}}>
+          <button type="Submit" disabled={countLetters(text)===0}  className="btn  me-3 my-1" onClick={handleUpClick} style={{backgroundColor:`${props.btncolor}` ,color:'white'}}>
             Convert to UpperCase
           </button>
           <button type="Submit"  disabled={countLetters(text)===0} className="btn  me-3 my-1" onClick={handleLowClick} style={{backgroundColor:`${props.btncolor}` ,color:'white'}}>
@@ -77,13 +77,13 @@ export default function TextConvertr(props) {
           <button type="Submit" disabled={countLetters(text)===0}  className="btn  me-3 my-1" onClick={handleCopy} style={{backgroundColor:`${props.btncolor}`,color:'white'}}>
             Copy Text
           </button>
-          <div className="container my">
+          </div>
+          <div className="container mx-20">
             <h6>No. of lettors : {countLetters(text)}</h6>
             <h6>No. of words : {text.split(/\s/).filter((element) => { return element.length != 0 }).length}</h6>
             <h6>No. of lines : {text.split(/\n/).filter((element) => { return element.length != 0 }).length}</h6>
           </div>
         </div>
-      </div>
     </>
   );
 }
