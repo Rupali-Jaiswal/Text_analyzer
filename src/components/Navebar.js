@@ -8,6 +8,7 @@ window.onclick = function (event) {
       document.getElementById('myDropdown').classList.remove("show")
   }
 }  
+
 export default function Navebar(props) {
   return (
     <div>
