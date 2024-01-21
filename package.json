@@ -41,6 +41,6 @@
   },
   "devDependencies": {
     "babel-preset-react-app": "^10.0.1",
-    "@babel/plugin-proposal-private-property-in-object": "^1.0.6"
+  
   }
 }
