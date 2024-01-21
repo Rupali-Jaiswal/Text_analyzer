@@ -80,8 +80,8 @@ export default function TextConvertr(props) {
           </div>
           <div className="container mx-20">
             <h6>No. of lettors : {countLetters(text)}</h6>
-            <h6>No. of words : {text.split(/\s/).filter((element) => { return element.length != 0 }).length}</h6>
-            <h6>No. of lines : {text.split(/\n/).filter((element) => { return element.length != 0 }).length}</h6>
+            <h6>No. of words : {text.split(/\s/).filter((element) => { return element.length !== 0 }).length}</h6>
+            <h6>No. of lines : {text.split(/\n/).filter((element) => { return element.length !== 0 }).length}</h6>
           </div>
         </div>
     </>

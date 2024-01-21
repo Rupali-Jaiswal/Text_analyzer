@@ -3,7 +3,6 @@ import Navebar from './components/Navebar';
 import TextConverter from './components/TextConvertr';
 import { useState } from 'react';
 import Alert from './components/Alert';
-import About from './components/About'
 import React from 'react';
 // import {
 //   BrowserRouter as Router,
@@ -29,6 +28,7 @@ function App() {
     setmode(cls)
     document.body.style.backgroundColor =cls
     document.body.style.color = 'white'
+    setbtncolor('black')
   }
   return (
     <>
